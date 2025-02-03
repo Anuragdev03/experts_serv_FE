@@ -1,0 +1,16 @@
+.expert-filter {
+    width: 19rem;
+    padding-inline: 8px;
+    margin-top: 2rem;
+}
+
+.filter-wrapper {
+    width: 19rem;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .filter-wrapper {
+        display: none;
+    }
+}

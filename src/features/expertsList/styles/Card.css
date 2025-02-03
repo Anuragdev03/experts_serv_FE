@@ -1,0 +1,20 @@
+.card {
+    width: 260px;
+    min-height: 180px;
+    background-color: #EFF3FF !important;
+    padding: 24px;
+    margin: 12px;
+}
+
+h3, p {
+    color: #000;
+}
+
+.card > h3 {
+    margin: 0;
+}
+
+.card-email {
+    opacity: 0.6;
+    font-size: 14px;
+}

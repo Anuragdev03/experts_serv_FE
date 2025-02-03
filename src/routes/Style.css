@@ -1,0 +1,19 @@
+.error-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-container h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .error-container p {
+    color: #666;
+    margin-bottom: 1rem;
+  }

@@ -1,0 +1,60 @@
+.experts-header {
+    background-color: #fff;
+    height: 80px;
+    padding-inline: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.ex-header-item {
+    justify-self: end;
+}
+
+.profile-group-cus:hover {
+    color: #228BE6;
+}
+
+.profile-group-cus>a:hover {
+    color: #228BE6;
+}
+
+.experts-wrapper {
+    margin-inline: 2rem;
+    display: grid;
+    grid-template-columns: 19rem minmax(320px, 1fr) 200px;
+    gap: 2rem;
+}
+
+.expert-search {
+    margin-top: 2rem;
+    padding: 10px;
+    padding-bottom: 16px;
+}
+
+.search-input {
+    width: 450px;
+}
+
+.expert-search-results {
+    margin-top: 2rem;
+    padding: 10px;
+    padding-bottom: 16px;
+}
+
+.search-result-header {
+    margin: 0;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .advertisement {
+        display: none;
+    }
+}
