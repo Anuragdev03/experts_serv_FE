@@ -8,6 +8,7 @@ http.interceptors.request.use((config) => {
     // const token = useGetToken();
 
     config.baseURL = baseUrl;
+    // config.headers.set("ngrok-skip-browser-warning", "true");
     // config.headers["Content-Type"] = "application/json";
     // config.withCredentials = true;
 

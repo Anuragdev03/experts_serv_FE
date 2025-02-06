@@ -8,10 +8,12 @@ export default function ExpertHeader() {
     function gotoProfile() {
         navigate("/customer-profile")
     }
+    const goHome = () => navigate("/")
+
     return (
         <Box className="experts-header">
             <Box>
-                <h5 className="logo">ExpertService</h5>
+                <h5 onClick={goHome} className="logo">ExpertService</h5>
             </Box>
             <Box className="ex-header-item">
                 <Group gap={4} style={{ cursor: "pointer"}} className="profile-group-cus" onClick={gotoProfile}>

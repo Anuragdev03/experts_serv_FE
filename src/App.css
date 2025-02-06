@@ -21,3 +21,7 @@ p, span, div, label {
 body {
     background-color: #EFF3FF !important;
 }
+
+.logo {
+    cursor: pointer;
+}

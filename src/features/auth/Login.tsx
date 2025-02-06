@@ -8,6 +8,7 @@ import { useAuth } from "../../authProvider/AuthProvider";
 import { useEffect, useState } from "react";
 import { loginToAccount } from "./api/login";
 import useEncryption from "../../hooks/useEncryption";
+import { notify } from "../../utilities/helpers";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -57,6 +58,8 @@ export default function Login() {
                 localStorage.setItem("rememberMe", "");
                 navigate("/dashboard");
             }
+        } else {
+            notify("ERROR", res?.response?.data?.message);
         }
 
     }

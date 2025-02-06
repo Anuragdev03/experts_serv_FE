@@ -6,7 +6,7 @@ interface Data {
 }
 export async function loginToAccount(data: Data) {
     try {
-        const res = await http.post("/login", data);
+        const res = await http.post("/login", data, {withCredentials: true});
 
         return res.data;
     } catch(err) {

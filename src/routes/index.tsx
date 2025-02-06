@@ -8,6 +8,7 @@ import NotFound from "./NotFound";
 import Dashboard from "../features/dashboard";
 import ProtectedRoute from "../authProvider/ProtectedRoute";
 import ExpertsList from "../features/expertsList";
+import CustomerProfile from "../features/customerProfile";
 
 export default function RouteWrapper() {
     return (
@@ -18,6 +19,7 @@ export default function RouteWrapper() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/experts" element={<ExpertsList />} />
+                <Route path="/customer-profile" element={<CustomerProfile />}  />
 
                 {/*  Protected Route */}
                 <Route element={<ProtectedRoute />}>

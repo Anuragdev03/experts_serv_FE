@@ -50,11 +50,18 @@
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: 20px;
+}
+
+.filter-button {
+    display: none !important;
 }
 
 @media only screen and (max-width: 768px) {
     .advertisement {
         display: none;
+    }
+
+    .filter-button {
+        display: block !important;
     }
 }

@@ -2,15 +2,16 @@ import { Box, Divider } from "@mantine/core";
 import "./homepage.css"
 import { useDisclosure } from '@mantine/hooks';
 import { Burger, Drawer } from '@mantine/core';
+import { useNavigate } from "react-router";
 
 export default function Header() {
     const [opened, { toggle, close }] = useDisclosure(false);
-    // const [opened, { open, close }] = useDisclosure(false);
-
+    const navigate = useNavigate();
+    const goHome = () => navigate("/")
     return (
         <Box className="header-container">
             <Box>
-                <h5 className="logo">ExpertService</h5>
+                <h5 onClick={goHome} className="logo">ExpertService</h5>
             </Box>
             <Box className="header-items">
                 <a>Features</a>

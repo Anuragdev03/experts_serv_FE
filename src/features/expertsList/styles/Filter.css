@@ -10,7 +10,11 @@
 
 
 @media only screen and (max-width: 768px) {
-    .filter-wrapper {
+    .filter-drawer > .filter-wrapper {
+        display: block;
+    }
+
+    .hide-on-mobile {
         display: none;
     }
 }
