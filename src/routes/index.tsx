@@ -9,6 +9,7 @@ import Dashboard from "../features/dashboard";
 import ProtectedRoute from "../authProvider/ProtectedRoute";
 import ExpertsList from "../features/expertsList";
 import CustomerProfile from "../features/customerProfile";
+import ExpertProfile from "../features/expertProfile";
 
 export default function RouteWrapper() {
     return (
@@ -24,6 +25,7 @@ export default function RouteWrapper() {
                 {/*  Protected Route */}
                 <Route element={<ProtectedRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path ="/expert-profile" element={<ExpertProfile />} />
                 </Route>
 
                 <Route path="*" element={<NotFound />} />

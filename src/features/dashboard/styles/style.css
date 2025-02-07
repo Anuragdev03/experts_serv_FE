@@ -1,0 +1,22 @@
+.experts-header {
+    background-color: #fff;
+    height: 80px;
+    padding-inline: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.ex-header-item {
+    justify-self: end;
+}
+.profile-group-cus:hover {
+    color: #228BE6;
+}
+
+@media only screen and (max-width: 600px) {
+    .experts-header {
+        padding-inline: 1rem;
+    }
+}

@@ -25,3 +25,7 @@ body {
 .logo {
     cursor: pointer;
 }
+
+.click-action:active {
+    transform: translateY(calc(0.0625rem* 1));
+}

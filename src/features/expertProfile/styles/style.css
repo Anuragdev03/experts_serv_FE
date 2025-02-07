@@ -1,0 +1,49 @@
+.wrapper {
+    margin: 2rem;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-detail-1 {
+    min-width: 400px;
+    padding: 2rem;
+}
+
+.expert-profile-title {
+    text-decoration: underline;
+    text-align: center;
+}
+
+.profile-detail-1 > p {
+    font-size: 14px;
+    color: #000;
+}
+
+.profile-detail-2 {
+    padding: 2rem;
+}
+
+.desc-text {
+    color: gray;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        margin: 1rem;
+    }
+
+    .profile-detail-1 {
+        width: 100%;
+        padding: 1rem;
+        min-width: 300px;
+    }
+
+    .profile-detail-2 {
+        width: 100%;
+        padding: 1rem;
+        min-width: 300px;
+    }
+}
+    

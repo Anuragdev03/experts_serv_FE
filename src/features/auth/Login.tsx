@@ -16,6 +16,7 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [isChecked, setIsChecked] = useState(false);
     const { encrypt, decrypt } = useEncryption()
+    const [loading, setLoading] = useState(false);
 
     const { storeToken } = useAuth();
     const goToSignup = () => navigate("/signup");
@@ -37,6 +38,7 @@ export default function Login() {
     }
 
     async function handleLogin() {
+        setLoading(true);
         const body = {
             email: email,
             password: password
@@ -61,6 +63,7 @@ export default function Login() {
         } else {
             notify("ERROR", res?.response?.data?.message);
         }
+        setLoading(false)
 
     }
 
@@ -102,7 +105,7 @@ export default function Login() {
                             Forgot password?
                         </Anchor>
                     </Group>
-                    <Button fullWidth mt="xl" onClick={handleLogin}>
+                    <Button fullWidth mt="xl" onClick={handleLogin} loading={loading}>
                         Sign in
                     </Button>
                     <Anchor c="dimmed" size="sm" onClick={gotToHome}>
