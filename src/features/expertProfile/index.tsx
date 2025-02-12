@@ -6,6 +6,8 @@ import PersonalProfile from "./PersonalProfile";
 import { getPersonalDetail } from "./api/expertDetail";
 import { useEffect, useState } from "react";
 import { getAccessToken } from "../../api/refreshToken";
+import PublicProfileTab from "./PublicProfile";
+import Loader from "../../components/Loader";
 
 export interface User {
     name: string;
@@ -26,20 +28,25 @@ export interface User {
 export default function ExpertProfile() {
     const [activeTab, setActiveTab] = useQueryState("profile-tab", {defaultValue: "personal"});
     const [expertDetail, setExpertDetail] = useState<User | null>(null)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         fetchExpertDetails()
     }, [])
 
     async function fetchExpertDetails() {
+        setLoading(true);
+        let flag = 0;
         const data = await getPersonalDetail();
         setExpertDetail(data);
 
         if(data === "Token has expired") {
+            if(flag > 3) return;
             const token = await getAccessToken();
-            console.log(token)
-            if(token) fetchExpertDetails()
+            if(token) fetchExpertDetails();
+            flag++;
         }
+        setLoading(false)
     }
 
 
@@ -47,8 +54,9 @@ export default function ExpertProfile() {
         <Box>
             <ExpertHeader />
 
-            <Box className="wrapper">
-                <Box>
+            <Box className="wrapper" pos={"relative"}>
+                <Box >
+                <Loader loading={loading} />
                 <h3 className="expert-profile-title">Expert Profile</h3>
                 <Paper shadow="sm" radius={8} className="profile-detail-1">
                     <p><span style={{opacity: 0.7}}>Name:</span> {expertDetail?.name}</p>
@@ -64,11 +72,14 @@ export default function ExpertProfile() {
 
                     <Tabs color="#000" value={activeTab} onChange={setActiveTab} my={16}>
                         <Tabs.List>
-                            <Tabs.Tab value="personal">Personal Profile</Tabs.Tab>
-                            <Tabs.Tab value="public">Public Profile</Tabs.Tab>
+                            <Tabs.Tab  value="personal">Personal</Tabs.Tab>
+                            <Tabs.Tab value="public">Public</Tabs.Tab>
                         </Tabs.List>
                         <Tabs.Panel value="personal">
                             <PersonalProfile data={expertDetail} />
+                        </Tabs.Panel>
+                        <Tabs.Panel value="public">
+                            <PublicProfileTab />
                         </Tabs.Panel>
                     </Tabs>
                 </Paper>

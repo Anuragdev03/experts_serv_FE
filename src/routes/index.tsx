@@ -10,6 +10,8 @@ import ProtectedRoute from "../authProvider/ProtectedRoute";
 import ExpertsList from "../features/expertsList";
 import CustomerProfile from "../features/customerProfile";
 import ExpertProfile from "../features/expertProfile";
+import ViewProfile from "../features/viewProfile";
+import RequestScreen from "../features/requestscreen";
 
 export default function RouteWrapper() {
     return (
@@ -21,6 +23,8 @@ export default function RouteWrapper() {
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/experts" element={<ExpertsList />} />
                 <Route path="/customer-profile" element={<CustomerProfile />}  />
+                <Route path="/view-profile/:url" element={<ViewProfile />} />
+                <Route path="/request-screen/:user_name" element={<RequestScreen />} />
 
                 {/*  Protected Route */}
                 <Route element={<ProtectedRoute />}>

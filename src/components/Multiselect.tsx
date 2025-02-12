@@ -5,10 +5,11 @@ interface Props {
     placeholder: string;
     data: Array<string>;
     handleChange: (value: string[]) => void
+    value?: string[];
 }
 
 function MultiSelect(props:Props) {
-    const { label, placeholder, data, handleChange} = props;
+    const { label, placeholder, data, handleChange, value} = props;
   return (
     <MultiSelector
       label={label}
@@ -17,6 +18,7 @@ function MultiSelect(props:Props) {
       searchable
       nothingFoundMessage="Nothing found..."
       onChange={handleChange}
+      value={value}
     />
   );
 }

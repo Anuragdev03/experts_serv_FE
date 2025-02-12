@@ -13,7 +13,7 @@ export default function ExpertHeader() {
     function gotoProfile() {
         navigate("/expert-profile")
     }
-    const goHome = () => navigate("/");
+    const goHome = () => navigate("/dashboard");
 
     async function logout() {
         const res = await logoutFromDevice();

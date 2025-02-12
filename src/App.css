@@ -29,3 +29,11 @@ body {
 .click-action:active {
     transform: translateY(calc(0.0625rem* 1));
 }
+
+.black {
+    color: #000;
+}
+
+.gray {
+    color: gray;
+}

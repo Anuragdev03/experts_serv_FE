@@ -86,7 +86,6 @@ function ExpertFilter(props: Props) {
         const country = countries?.find(obj => obj?.name === val);
         fetchCountryValue(val);
         setSelectedCountryId(country?.id);
-
     }
 
     function getSelectedState(val: string) {

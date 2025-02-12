@@ -10,7 +10,7 @@ export default function Loader(props: Props) {
             visible={props.loading}
             zIndex={1000}
             overlayProps={{ radius: 'sm', blur: 2 }}
-            loaderProps={{ color: '#000', type: 'bars' }}
+            loaderProps={{ color: '#000', type: 'bars', alignmentBaseline:"hanging" }}
         />
     )
 }

@@ -19,6 +19,8 @@ interface User {
     city: string;
     lat: string;
     lng: string;
+    profile_url?: string;
+    user_name: string;
 }
 
 export default function ExpertsList() {
@@ -189,6 +191,8 @@ export default function ExpertsList() {
                                     key={user.id}
                                     lat={user.lat}
                                     lng={user.lng}
+                                    profile_url={user.profile_url}
+                                    user_name={user?.user_name}
                                 />
                             ))}
                         </Box>
@@ -199,7 +203,10 @@ export default function ExpertsList() {
                         </Group>
                     </Paper>
                 </Box>
-                <Box className="advertisement"></Box>
+                <Box className="advertisement">
+                    <h4 className="advertisement-header">Advertisement</h4>
+                    <p className="ad-desc">(Contact admin for advertisement)</p>
+                </Box>
             </Box>
             <Drawer opened={opened} onClose={close} title="Filters" size={"sm"} className="filter-drawer" keepMounted>
                 <ExpertFilter

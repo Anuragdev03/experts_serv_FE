@@ -66,6 +66,7 @@ export function AutoCompleteForm(props: Props) {
                                 onBlur={() => combobox.closeDropdown()}
                                 error={error?.message ? error?.message : ""}
                                 required={required}
+                                mb={12}
                             />
                         </Combobox.Target>
 
