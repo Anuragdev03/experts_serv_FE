@@ -23,14 +23,14 @@ interface AuthProviderProps {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
-    const [accessToken, setAccessToken] = useState(localStorage.getItem("token"));
+    const [accessToken, setAccessToken] = useState(sessionStorage.getItem("token"));
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     function storeToken(token: string, data: User) {
         setAccessToken(token);
         setUser(data);
         setIsAuthenticated(true)
-        localStorage.setItem("token", token);
+        sessionStorage.setItem("token", token);
     }
 
     function logout() {

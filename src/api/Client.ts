@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const baseUrl = import.meta.env.VITE_BASE_API_URL;
+export const baseUrl = import.meta.env.VITE_BASE_API_URL;
 
 const http = axios.create({});
 
 http.interceptors.request.use((config) => {
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
 
     config.baseURL = baseUrl;
     // config.headers.set("ngrok-skip-browser-warning", "true");

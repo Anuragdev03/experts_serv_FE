@@ -22,6 +22,43 @@
     padding: 2rem;
 }
 
+.modal-desc {
+    font-size: 14px;
+    color: gray;
+    margin-block: 16px;
+}
+
+.tracking-code {
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 4px;
+    cursor: copy;
+}
+
+.tracking-link {
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 4px;
+    cursor: pointer;
+    display: block;
+}
+
+.OR {
+    text-align: center;
+    font-size: 14px;
+}
+
+.clicktocopy {
+    font-size: 10px;
+    color: gray;
+}
+
+.copy-info {
+    font-size: 10px;
+    color: green;
+}
 
 @media only screen and (max-width: 768px) {
     .rs-paper {

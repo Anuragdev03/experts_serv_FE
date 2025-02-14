@@ -52,7 +52,7 @@ export default function ExpertProfile() {
 
     return (
         <Box>
-            <ExpertHeader />
+            {/* <ExpertHeader /> */}
 
             <Box className="wrapper" pos={"relative"}>
                 <Box >

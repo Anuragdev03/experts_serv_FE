@@ -78,3 +78,12 @@ export const isValidWebsite = (url: string) => {
     const urlRegex = /^(https?:\/\/)[\w-]+(\.[\w-]+)+([\w-./?%&=]*)?$/i;
     return urlRegex.test(url);
 };
+
+export async function copyToClipboard(text: string): Promise<void> {
+    try {
+        await navigator.clipboard.writeText(text);
+        console.log("Text copied to clipboard!");
+    } catch (err) {
+        console.error("Failed to copy:", err);
+    }
+}

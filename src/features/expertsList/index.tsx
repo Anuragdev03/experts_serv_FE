@@ -183,12 +183,12 @@ export default function ExpertsList() {
                         {/* Results */}
                         <h4 className="search-result-header">Search Results</h4>
                         <Box className="card-container">
-                            {Array.isArray(expertList) && expertList.map(user => (
+                            {Array.isArray(expertList) && expertList.map((user, i) => (
                                 <Card
                                     name={user.name}
                                     job_names={user.job_names}
                                     city={user.city}
-                                    key={user.id}
+                                    key={i}
                                     lat={user.lat}
                                     lng={user.lng}
                                     profile_url={user.profile_url}

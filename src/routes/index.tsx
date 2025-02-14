@@ -12,6 +12,8 @@ import CustomerProfile from "../features/customerProfile";
 import ExpertProfile from "../features/expertProfile";
 import ViewProfile from "../features/viewProfile";
 import RequestScreen from "../features/requestscreen";
+import ExpertLayout from "../layouts/ExpertLayout";
+import CustomerRequest from "../features/customerRequest";
 
 export default function RouteWrapper() {
     return (
@@ -22,14 +24,15 @@ export default function RouteWrapper() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/experts" element={<ExpertsList />} />
-                <Route path="/customer-profile" element={<CustomerProfile />}  />
+                <Route path="/customer-profile" element={<CustomerProfile />} />
                 <Route path="/view-profile/:url" element={<ViewProfile />} />
                 <Route path="/request-screen/:user_name" element={<RequestScreen />} />
 
                 {/*  Protected Route */}
                 <Route element={<ProtectedRoute />}>
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path ="/expert-profile" element={<ExpertProfile />} />
+                    <Route path="/dashboard" element={<ExpertLayout><Dashboard /></ExpertLayout>} />
+                    <Route path="/expert-profile" element={<ExpertLayout><ExpertProfile /></ExpertLayout>} />
+                    <Route path="/customer-request" element={<ExpertLayout><CustomerRequest /></ExpertLayout>} />
                 </Route>
 
                 <Route path="*" element={<NotFound />} />

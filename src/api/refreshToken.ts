@@ -5,7 +5,7 @@ export async function getAccessToken() {
         const res = await http.get("/refresh-token", {withCredentials: true});
         let token = res?.data?.token;
         if(token) {
-            localStorage.setItem("token", token);
+            sessionStorage.setItem("token", token);
         }
         return true
     } catch(err) {
