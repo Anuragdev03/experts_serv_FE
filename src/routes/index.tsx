@@ -14,6 +14,8 @@ import ViewProfile from "../features/viewProfile";
 import RequestScreen from "../features/requestscreen";
 import ExpertLayout from "../layouts/ExpertLayout";
 import CustomerRequest from "../features/customerRequest";
+import ExpertResponse from "../features/expertResponse";
+import TrackRequest from "../features/trackRequest";
 
 export default function RouteWrapper() {
     return (
@@ -27,12 +29,15 @@ export default function RouteWrapper() {
                 <Route path="/customer-profile" element={<CustomerProfile />} />
                 <Route path="/view-profile/:url" element={<ViewProfile />} />
                 <Route path="/request-screen/:user_name" element={<RequestScreen />} />
+                <Route path="/track" element={<TrackRequest />} />
+                <Route path="/track/:link" element={<TrackRequest />} />
 
                 {/*  Protected Route */}
                 <Route element={<ProtectedRoute />}>
                     <Route path="/dashboard" element={<ExpertLayout><Dashboard /></ExpertLayout>} />
                     <Route path="/expert-profile" element={<ExpertLayout><ExpertProfile /></ExpertLayout>} />
                     <Route path="/customer-request" element={<ExpertLayout><CustomerRequest /></ExpertLayout>} />
+                    <Route path="/expert-response/:url" element ={<ExpertLayout><ExpertResponse /></ExpertLayout>}  />
                 </Route>
 
                 <Route path="*" element={<NotFound />} />
