@@ -14,6 +14,8 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { AiOutlineUserSwitch } from "react-icons/ai";
 import { LiaTasksSolid } from "react-icons/lia";
 import { MdOutlineWorkOutline } from "react-icons/md";
+import { RiCalendarEventLine } from "react-icons/ri";
+
 import { getNotificationCount } from "./api/notification";
 import { useEffect, useState } from "react";
 import { getAccessToken } from "../../api/refreshToken";
@@ -42,6 +44,11 @@ export default function ExpertHeader() {
 
     function gotoCusReq() {
         navigate("/customer-request");
+        close()
+    }
+
+    function gotoEvents() {
+        navigate("/events");
         close()
     }
 
@@ -123,6 +130,10 @@ export default function ExpertHeader() {
                     <Group>
                         <LiaTasksSolid size={18} />
                         <Anchor className="nav-item">Tasks</Anchor>
+                    </Group>
+                    <Group>
+                        <RiCalendarEventLine size={18} />
+                        <Anchor onClick={gotoEvents} className="nav-item">Events</Anchor>
                     </Group>
                     <Group>
                         <MdOutlineWorkOutline size={18} />

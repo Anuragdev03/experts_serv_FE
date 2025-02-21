@@ -14,3 +14,23 @@ export function formatDate(val: string) {
         return val
     }
 }
+
+export function eventDate(val: string | Date) {
+    try {
+        const date = dayjs(val);
+        const formattedDate = date.format("YYYY-MM-DD");
+        return formattedDate;
+    } catch(err) {
+        return val
+    }
+}
+
+export function monthAndYear(val: string | Date) {
+    try {
+        const date = dayjs(val);
+        const formattedDate = date.format("YYYY-MM");
+        return formattedDate;
+    } catch(err) {
+        return val
+    }
+}

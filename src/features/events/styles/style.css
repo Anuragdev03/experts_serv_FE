@@ -1,0 +1,51 @@
+.t-wrapper {
+    margin: 2rem;
+}
+
+.t-calendar {
+    padding: 2rem;
+}
+
+.fc .fc-scrollgrid {
+    background-color: #ffffff !important; /* Light gray */
+}
+
+.fc .fc-daygrid-day-frame {
+    font-size: 14px !important;
+}
+
+.fc .fc-button {
+    background-color: gray;
+}
+
+.e-links {
+    color: black !important;
+    font-size: 14px !important;
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    border-radius: 0 !important;
+}
+
+.e-links:hover {
+    background-color: lightgrey !important;
+}
+
+.m_615af6c9 {
+    font-weight: 600 !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .t-wrapper {
+        margin: 1rem;
+    }
+    .fc .fc-toolbar {
+        /* display: block; */
+        flex-direction: column !important;
+        gap: 4px;
+        align-items: flex-start !important;
+    }
+    .fc .fc-button-group {
+        flex-wrap: wrap !important;
+        gap: 4px;
+    }
+}
