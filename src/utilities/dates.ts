@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
 
-export function formatDate(val: string) {
+export function formatDate(val: string | Date) {
     try {
         const date = dayjs(val);
         const formattedDate = date.format("YYYY-MMM-DD h:mm a");

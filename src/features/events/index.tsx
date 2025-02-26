@@ -1,11 +1,10 @@
 import { Box, Button, Divider, Group, Paper } from "@mantine/core";
 import "./styles/style.css"
 import Calendar from "./Calendar";
-import { CgToday } from "react-icons/cg";
 import { IoAddSharp } from "react-icons/io5";
 import { useDisclosure } from "@mantine/hooks";
 import AddEvent from "./modals/AddEvent";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { eventDate, monthAndYear } from "../../utilities/dates";
 import { getEventList } from "./api/events";
 import { getAccessToken } from "../../api/refreshToken";
@@ -15,35 +14,34 @@ export default function Events() {
     const [events, setEvents] = useState([]);
 
 
-    // async function fetchEvents() {
-    //     let flag = 0;
-    //     const currDate = new Date();
+    async function fetchEvents() {
+        let flag = 0;
+        const currDate = new Date();
 
-    //     const supportedFormat = monthAndYear(currDate);
-    //     let start = supportedFormat + "-01";
-    //     let end = supportedFormat + "-28";
-    //     const list = await getEventList(start, end);
-    //     if (list === "Token has expired") {
-    //         if (flag > 3) return;
-    //         const token = await getAccessToken();
-    //         if (token) fetchEvents();
-    //         flag++;
-    //     }
-    //     console.log(list)
-    //     const data = list?.data;
+        const supportedFormat = monthAndYear(currDate);
+        let start = supportedFormat + "-01";
+        let end = supportedFormat + "-28";
+        const list = await getEventList(start, end);
+        if (list === "Token has expired") {
+            if (flag > 3) return;
+            const token = await getAccessToken();
+            if (token) fetchEvents();
+            flag++;
+        }
+        const data = list?.data;
 
-    //     const formattedEvents = data.map((event: any) => ({
-    //         id: event.id,
-    //         title: event.title,
-    //         start: event.start_date, 
-    //         end: event.end_date,
-    //         allDay: event.allDay === "true" ? true : false,
-    //         description: event.description,
-    //         link: event.link
-    //       }));
+        const formattedEvents = data.map((event: any) => ({
+            id: event.id,
+            title: event.title,
+            start: event.start_date, 
+            end: event.end_date,
+            allDay: event.all_day === "true" ? true : false,
+            description: event.description,
+            link: event.link
+          }));
         
-    //     setEvents(formattedEvents)
-    // }
+        setEvents(formattedEvents)
+    }
 
     async function fetchEventsByArg(start: string | Date, end: string | Date) {
         let flag = 0;
@@ -59,12 +57,13 @@ export default function Events() {
         }
         const data = list?.data;
 
+
         const formattedEvents = data.map((event: any) => ({
             id: event.id,
             title: event.title,
             start: event.start_date, 
             end: event.end_date,
-            allDay: event.allDay === "true" ? true : false,
+            allDay: event.all_day === "true" ? true : false,
             description: event.description,
             link: event.link
           }));
@@ -78,7 +77,6 @@ export default function Events() {
             <Paper shadow="sm" radius={8}>
                 <h6 className="page-head">Events</h6>
                 <Group mx={8}>
-                    <Button leftSection={<CgToday size={14} />} size="xs" variant="outline" className="e-links">Today</Button>
                     <Button onClick={open} leftSection={<IoAddSharp size={14} />} size="xs" variant="outline" className="e-links">Add Events</Button>
 
                 </Group>
@@ -89,6 +87,7 @@ export default function Events() {
                 <AddEvent
                     opened={opened}
                     close={close}
+                    fetchEvents={fetchEvents}
                 />
             </Paper>
         </Box>
