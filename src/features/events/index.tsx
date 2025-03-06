@@ -78,7 +78,6 @@ export default function Events() {
                 <h6 className="page-head">Events</h6>
                 <Group mx={8}>
                     <Button onClick={open} leftSection={<IoAddSharp size={14} />} size="xs" variant="outline" className="e-links">Add Events</Button>
-
                 </Group>
                 <Divider my={8} />
                 <Calendar events={events} fetchEvents={fetchEventsByArg} />

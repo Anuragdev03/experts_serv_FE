@@ -66,9 +66,9 @@ export default function Calendar(props: Props) {
     }
 
     function handleEventClick(arg: EventClickArg) {
+        console.log(arg)
         if (!arg.event.start) return;
         if (!arg.event.end) return;
-
         const payLoad = {
             id: arg.event.id,
             title: arg.event.title,
@@ -83,7 +83,6 @@ export default function Calendar(props: Props) {
     }
 
     function handleHeaderButtonClicks(arg: DatesSetArg) {
-        console.log(arg);
         fetchEvents(arg.start, arg.end)
         setInitialDate({ startDate: arg.start, endDate: arg.end })
     }

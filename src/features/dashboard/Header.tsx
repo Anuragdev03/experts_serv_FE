@@ -7,7 +7,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { logoutFromDevice } from "./api/logout";
 import { Burger, Drawer, CloseButton } from '@mantine/core';
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useViewportSize } from "@mantine/hooks";
 
 //icons
 import { MdOutlineDashboard } from "react-icons/md";
@@ -25,6 +25,7 @@ export default function ExpertHeader() {
     const navigate = useNavigate();
     const [opened, { toggle, close }] = useDisclosure(false);
     const [notificationStatus, setNotificationStatus] = useState(false);
+    const { width } = useViewportSize();
 
     function gotoProfile() {
         navigate("/expert-profile")
@@ -49,6 +50,11 @@ export default function ExpertHeader() {
 
     function gotoEvents() {
         navigate("/events");
+        close()
+    }
+
+    function gotoTasks() {
+        navigate("/tasks");
         close()
     }
 
@@ -89,7 +95,7 @@ export default function ExpertHeader() {
                         <Menu.Target>
                             <Group gap={4} style={{ cursor: "pointer" }} className="profile-group-cus click-action">
                                 <FaUserGear size={18} color="#000" />
-                                <a style={{ cursor: "pointer", color: "#000" }}>Settings</a>
+                                <a style={{ cursor: "pointer", color: "#000" }}>{width > 720 ? "Settings" : ""}</a>
                             </Group>
                         </Menu.Target>
                         <Menu.Dropdown>
@@ -129,7 +135,7 @@ export default function ExpertHeader() {
                     </Group>
                     <Group>
                         <LiaTasksSolid size={18} />
-                        <Anchor className="nav-item">Tasks</Anchor>
+                        <Anchor className="nav-item" onClick={gotoTasks}>Tasks</Anchor>
                     </Group>
                     <Group>
                         <RiCalendarEventLine size={18} />

@@ -37,3 +37,10 @@ body {
 .gray {
     color: gray;
 }
+
+.reminder-calendar {
+    font-size: 14px;
+    color: gray;
+    cursor: pointer;
+    text-decoration: underline;
+}

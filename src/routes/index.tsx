@@ -17,6 +17,8 @@ import CustomerRequest from "../features/customerRequest";
 import ExpertResponse from "../features/expertResponse";
 import TrackRequest from "../features/trackRequest";
 import Events from "../features/events";
+import Tasks from "../features/tasks";
+import EditTask from "../features/tasks/EditTask";
 
 export default function RouteWrapper() {
     return (
@@ -40,6 +42,8 @@ export default function RouteWrapper() {
                     <Route path="/customer-request" element={<ExpertLayout><CustomerRequest /></ExpertLayout>} />
                     <Route path="/expert-response/:url" element ={<ExpertLayout><ExpertResponse /></ExpertLayout>}  />
                     <Route path ="/events" element={<ExpertLayout><Events /></ExpertLayout>} />
+                    <Route path ="/tasks" element={<ExpertLayout><Tasks /></ExpertLayout>} />
+                    <Route path ="/edit-task/:id" element={<ExpertLayout><EditTask /></ExpertLayout>} />
                 </Route>
 
                 <Route path="*" element={<NotFound />} />

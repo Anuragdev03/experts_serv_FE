@@ -9,7 +9,8 @@ import { DateValue } from "@mantine/dates";
 import { addResponse, responseIsExists, updateResponse } from "./api/expertResponse";
 import { notify } from "../../utilities/helpers";
 import { getAccessToken } from "../../api/refreshToken";
-import dayjs from "dayjs";
+import { useDisclosure } from "@mantine/hooks";
+import AddToCalendarModal from "../../components/AddToCalendarModal";
 
 type Status = "accepted" | "declined";
 
@@ -22,6 +23,8 @@ export default function ExpertResponse() {
     const [date, setDate] = useState<DateValue>(new Date());
     const [response, setResponse] = useState("");
     const [isEdit, setIsEdit] = useState(false);
+    const [ opened, {open, close}] = useDisclosure(false)
+
     const goBack = () => navigate(-1);
 
     function handleDate(date: DateValue) {
@@ -70,14 +73,14 @@ export default function ExpertResponse() {
 
         let payload: any = { tracking_link };
 
-        if(status) {
-            payload = {...payload, status}
+        if (status) {
+            payload = { ...payload, status }
         }
-        if(date) {
-            payload = {...payload, available_date: date}
+        if (date) {
+            payload = { ...payload, available_date: date }
         }
-        if(response) {
-            payload = {...payload, message: response}
+        if (response) {
+            payload = { ...payload, message: response }
         }
 
         const res = await updateResponse(payload);
@@ -165,10 +168,14 @@ export default function ExpertResponse() {
                         my={12}
                         value={date}
                     />
-
+                    <Box my={16}>
+                        <a className="reminder-calendar" onClick={open}>Add Reminder to Calendar</a>
+                    </Box>
                     {isEdit ? updateButtons() : createButtons()}
                 </Box>
             </Paper>
+
+            <AddToCalendarModal opened={opened} close={close} />
         </Box>
     )
 }

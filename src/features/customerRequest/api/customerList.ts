@@ -4,6 +4,7 @@ interface Data {
     sort: string;
     status: string;
     page: number;
+    keyword?: string;
 }
 export async function getCustomerList(data: Data) {
     try {
@@ -17,6 +18,9 @@ export async function getCustomerList(data: Data) {
         }
         if(data.status) {
             url += `&status=${data.status}`
+        }
+        if(data?.keyword) {
+            url += `&keyword=${data.keyword}`
         }
 
         const res = await http.get(url, {withCredentials: true});

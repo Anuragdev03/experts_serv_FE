@@ -105,5 +105,8 @@ a {
         justify-content: center;
         align-items: center;
     }
+    .logo {
+        font-size: 16px;
+    }
 
 }

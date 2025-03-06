@@ -34,7 +34,7 @@ export default function CustomerTable(props: Props) {
                 <Table.Td>{obj?.customer_phone}</Table.Td>
                 <Table.Td>{obj?.customer_email}</Table.Td>
                 <Table.Td>{obj?.message}</Table.Td>
-                <Table.Td>{formatDate(obj?.created_at)}</Table.Td>
+                <Table.Td>{formatDate(obj?.created_at)?.toString()}</Table.Td>
             </Table.Tr>
         )
     })
