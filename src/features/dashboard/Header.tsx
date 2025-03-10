@@ -59,13 +59,10 @@ export default function ExpertHeader() {
     }
 
     async function getNotificationStatus() {
-        let flag = 0;
         const res = await getNotificationCount();
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) getNotificationStatus();
-            flag++;
         }
         if(Number(res?.count) > 0) {
             setNotificationStatus(true)
@@ -75,6 +72,10 @@ export default function ExpertHeader() {
     useEffect(() => {
         getNotificationStatus()
     }, [])
+
+    function gotoNotificationPage() {
+        navigate("/notifications")
+    }
     return (
         <Box className="experts-header">
             <Box>
@@ -86,7 +87,7 @@ export default function ExpertHeader() {
 
             <Box className="ex-header-item">
                 <Group gap={4} >
-                    <ActionIcon color="gray" variant="outline" mr={16} >
+                    <ActionIcon color="gray" variant="outline" mr={16} onClick={gotoNotificationPage}>
                         <Indicator size={8} inline processing position="top-end" disabled={!notificationStatus} color="#000">
                             <IoMdNotificationsOutline />
                         </Indicator>

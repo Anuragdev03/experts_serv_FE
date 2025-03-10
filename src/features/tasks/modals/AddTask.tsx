@@ -51,12 +51,9 @@ export default function AddTaskModal(props: Props) {
         }
 
         const res = await createTask(params);
-        let flag = 0;
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) handleSubmit();
-            flag++;
         }
         if (res === "Please login again") {
             notify("ERROR", res);

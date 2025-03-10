@@ -37,7 +37,6 @@ export default function ExpertResponse() {
 
     async function submitResponse(status: Status) {
         setLoading(true)
-        let flag = 1;
         const tracking_link = params.url;
         if (!tracking_link) return;
 
@@ -50,10 +49,8 @@ export default function ExpertResponse() {
 
         const res = await addResponse(payload);
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) submitResponse(status);
-            flag++;
         }
 
         if (res.message === "Success") {
@@ -67,7 +64,6 @@ export default function ExpertResponse() {
 
     async function updateExpertResponse(status: Status) {
         setLoading(true)
-        let flag = 1;
         const tracking_link = params.url;
         if (!tracking_link) return;
 
@@ -85,10 +81,8 @@ export default function ExpertResponse() {
 
         const res = await updateResponse(payload);
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) updateExpertResponse(status);
-            flag++;
         }
 
         if (res.message === "Success") {

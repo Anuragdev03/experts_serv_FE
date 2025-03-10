@@ -17,12 +17,9 @@ export function DeleteTaskModal(props: Props) {
 
     async function confirmDelete() {
         const res = await deleteTask(id)
-        let flag = 0
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) confirmDelete();
-            flag++;
         }
         if (res === "Please login again") {
             notify("ERROR", res);

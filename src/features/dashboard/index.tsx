@@ -16,13 +16,10 @@ export default function Dashboard() {
     }, [])
 
     async function fetchReqCount() {
-        let flag = 1;
         const res = await getCount();
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) fetchReqCount();
-            flag++;
         }
         if (res?.count) {
             setReqCount(res.count)

@@ -68,7 +68,6 @@ export default function EditEvent(props: Props) {
 
     async function confirmDelete() {
         if (!data?.id) return;
-        let flag = 0;
         const res = await deleteEvent(data?.id);
 
         if (res === "Please login again") {
@@ -77,10 +76,8 @@ export default function EditEvent(props: Props) {
         }
 
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) confirmDelete();
-            flag++;
         }
         if (res?.message === "Event deleted successfully") {
             notify("SUCCESS", res.message);
@@ -141,7 +138,6 @@ export default function EditEvent(props: Props) {
         payload={...payload, all_day: isAllDayEvent};
 
         const res = await updateEvent(payload);
-        let flag = 0;
 
         if (res === "Please login again") {
             navigate("/login");
@@ -149,10 +145,8 @@ export default function EditEvent(props: Props) {
         }
 
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) confirmUpdate(formData);
-            flag++;
         }
 
         if(res?.message === "Event updated successfully") {

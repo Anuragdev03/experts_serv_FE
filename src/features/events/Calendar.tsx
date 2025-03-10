@@ -103,17 +103,14 @@ export default function Calendar(props: Props) {
             end_date: end
         }
         const res = await updateEvent(payload);
-        let flag = 0;
         if (res === "Please login again") {
             navigate("/login");
             notify("INFO", "Please login again");
         }
 
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) handleDragAndDropEvent(e);
-            flag++;
         }
 
         if (res?.message === "Event updated successfully") {

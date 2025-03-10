@@ -19,6 +19,7 @@ import TrackRequest from "../features/trackRequest";
 import Events from "../features/events";
 import Tasks from "../features/tasks";
 import EditTask from "../features/tasks/EditTask";
+import Notifications from "../features/notifications";
 
 export default function RouteWrapper() {
     return (
@@ -44,6 +45,7 @@ export default function RouteWrapper() {
                     <Route path ="/events" element={<ExpertLayout><Events /></ExpertLayout>} />
                     <Route path ="/tasks" element={<ExpertLayout><Tasks /></ExpertLayout>} />
                     <Route path ="/edit-task/:id" element={<ExpertLayout><EditTask /></ExpertLayout>} />
+                    <Route path="/notifications" element={<ExpertLayout><Notifications /></ExpertLayout>} />
                 </Route>
 
                 <Route path="*" element={<NotFound />} />

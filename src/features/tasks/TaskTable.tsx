@@ -69,12 +69,9 @@ export default function TaskTable(props: Props) {
     async function updatePriority(id: string | number, val: string) {
         const params = { id, priority: val };
         const res = await updateTask(params);
-        let flag = 0;
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) updatePriority(id, val);
-            flag++;
         }
         if (res === "Please login again") {
             notify("ERROR", res);
@@ -97,12 +94,9 @@ export default function TaskTable(props: Props) {
     async function updateStatus(id: string | number, val: string) {
         const params = { id, status: val };
         const res = await updateTask(params);
-        let flag = 0;
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) updateStatus(id, val);
-            flag++;
         }
         if (res === "Please login again") {
             notify("ERROR", res);

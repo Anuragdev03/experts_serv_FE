@@ -88,15 +88,12 @@ export default function PersonalProfile(props: Props) {
     }
 
     const onSubmit: SubmitHandler<FormState> = async(data) => {
-        let flag = 1;
         const jobIds = selectedJobIds;
         const payload = {...data, jobIds};
         const res = await updateExpertDetail(payload);
         if(res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if(token) onSubmit(data);
-            flag++;
         }
         if(res === "Profile updated successfully") {
             notify("SUCCESS", res);

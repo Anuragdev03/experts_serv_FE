@@ -1,0 +1,48 @@
+.n-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.notification {
+    min-width: 600px;
+}
+
+.n-card {
+    border: 1px solid gray;
+    padding:8px;
+    margin: 1rem;
+    border-radius: 6px;
+    position: relative;
+}
+
+.card-font {
+    font-size: 14px;
+    text-wrap: wrap;
+}
+
+.new-icon {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    top: -3px;
+}
+
+.n-date {
+    font-size: 14px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .n-wrapper {
+        margin: 1rem;
+        justify-content: left;
+    }
+
+    .notification {
+        min-width: 100%;
+    }
+}

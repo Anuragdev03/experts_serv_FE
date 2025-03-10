@@ -35,7 +35,6 @@ export default function PublicProfileTab() {
     }
 
     async function handleSave() {
-        let flag = 0;
         const isValid = isValidWebsite(website);
         if (!isValid && website) {
             setError("Enter a valid url. E.g https://google.com");
@@ -58,10 +57,8 @@ export default function PublicProfileTab() {
         if (Object.keys(payLoad).length) {
             const res = await updatePublicProfile(payLoad);
             if (res === "Token has expired") {
-                if (flag > 3) return;
                 const token = await getAccessToken();
                 if (token) handleSave();
-                flag++;
             }
             if (res === "Profile updated successfully") {
                 notify("SUCCESS", res);
@@ -74,13 +71,10 @@ export default function PublicProfileTab() {
     }
 
     async function getProfileDetails() {
-        let flag = 0;
         const res = await getPublicProfileDetails();
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) getProfileDetails();
-            flag++;
         }
         if(res.message === "Success") {
             if(res?.data?.website) {

@@ -15,7 +15,6 @@ export default function Events() {
 
 
     async function fetchEvents() {
-        let flag = 0;
         const currDate = new Date();
 
         const supportedFormat = monthAndYear(currDate);
@@ -23,10 +22,8 @@ export default function Events() {
         let end = supportedFormat + "-28";
         const list = await getEventList(start, end);
         if (list === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) fetchEvents();
-            flag++;
         }
         const data = list?.data;
 
@@ -44,16 +41,13 @@ export default function Events() {
     }
 
     async function fetchEventsByArg(start: string | Date, end: string | Date) {
-        let flag = 0;
         let date1 = eventDate(start);
         let date2 = eventDate(end);
 
         const list = await getEventList(date1, date2);
         if (list === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) fetchEventsByArg(start, end);
-            flag++;
         }
         const data = list?.data;
 

@@ -52,13 +52,10 @@ export default function AddToCalendarModal(props: Props) {
            
     
             // Api call
-            let flag = 0;
             const res = await addEventReq(payload);
             if (res === "Token has expired") {
-                if (flag > 3) return;
                 const token = await getAccessToken();
                 if (token) submitForm();
-                flag++;
             }
     
             if(res?.message === "Event created successfully") {

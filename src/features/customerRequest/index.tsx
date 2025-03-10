@@ -30,7 +30,6 @@ export default function CustomerRequest() {
 
     async function fetchList() {
         setLoading(true);
-        let flag = 0;
         let params:any = {
             page,
             status: activeTab,
@@ -42,10 +41,8 @@ export default function CustomerRequest() {
         const res = await getCustomerList(params);
         setLoading(false);
         if (res === "Token has expired") {
-            if (flag > 3) return;
             const token = await getAccessToken();
             if (token) fetchList();
-            flag++;
         }
         if(res === "Please login again") {
             notify("ERROR", res);
