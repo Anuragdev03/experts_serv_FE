@@ -1,6 +1,8 @@
 import { Button, Box } from '@mantine/core';
 import Header from './Header';
 import { useNavigate } from 'react-router';
+import Features from './Features';
+import Footer from '../../components/footer/Footer';
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -31,6 +33,10 @@ export default function HomePage() {
             <Button onClick={navigateToExpertList} size='md'>Find an Expert Now</Button>
             <Button onClick={navigateToSignIn} size='md'>Join Our Expert Network</Button>
         </Box>
+
+        <Features />
+
+        <Footer />
     </Box>
   );
 }

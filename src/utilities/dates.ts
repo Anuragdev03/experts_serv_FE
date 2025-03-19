@@ -15,6 +15,16 @@ export function formatDate(val: string | Date) {
     }
 }
 
+export function formatTime(val: string | Date) {
+    try {
+        const date = dayjs(val);
+        const formattedDate = date.format("h:mm a");
+        return formattedDate;
+    } catch (err) {
+        return val
+    }
+}
+
 export function eventDate(val: string | Date) {
     try {
         const date = dayjs(val);

@@ -32,7 +32,6 @@ export default function RequestScreen() {
             phone: localStorage.getItem("customer_phone") || ""
         }
     })
-    console.log(params)
     const goBack = () => navigate(-1);
 
 
@@ -58,7 +57,6 @@ export default function RequestScreen() {
         } else {
             notify("ERROR", res.slice(5))
         }
-        console.log(res)
     }
 
     function copyTrackingLink() {

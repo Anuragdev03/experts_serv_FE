@@ -1,0 +1,34 @@
+.settings-wrapper {
+    margin: 2rem;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.settings-title {
+    text-decoration: underline;
+    text-align: center;
+    color: #000;
+}
+
+.settings-paper {
+    min-width: 400px;
+    padding: 2rem;
+}
+
+.delete-title {
+    text-decoration: underline;
+    color: #000;
+}
+
+.delete-info-text {
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 600px) {
+    .settings-paper {
+        padding: 1rem;;
+        min-width: 100px;
+        width: 100%;
+    }
+}

@@ -9,7 +9,6 @@ export async function getAccessToken() {
         }
         return true
     } catch(err) {
-        console.log(err)
         return false
     }
 }

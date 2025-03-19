@@ -76,6 +76,10 @@ export default function ExpertHeader() {
     function gotoNotificationPage() {
         navigate("/notifications")
     }
+
+    function gotoSettings() {
+        navigate("/settings")
+    }
     return (
         <Box className="experts-header">
             <Box>
@@ -105,7 +109,7 @@ export default function ExpertHeader() {
                                     Profile
                                 </Menu.Item>
 
-                                <Menu.Item leftSection={<IoSettingsOutline size={18} alignmentBaseline="central" />}>
+                                <Menu.Item onClick={gotoSettings} leftSection={<IoSettingsOutline size={18} alignmentBaseline="central" />}>
                                     Settings
                                 </Menu.Item>
 
@@ -142,10 +146,10 @@ export default function ExpertHeader() {
                         <RiCalendarEventLine size={18} />
                         <Anchor onClick={gotoEvents} className="nav-item">Events</Anchor>
                     </Group>
-                    <Group>
+                    {/* <Group>
                         <MdOutlineWorkOutline size={18} />
                         <Anchor className="nav-item">Projects</Anchor>
-                    </Group>
+                    </Group> */}
 
                 </Box>
             </Drawer>

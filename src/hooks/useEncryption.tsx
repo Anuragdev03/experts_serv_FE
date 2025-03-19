@@ -12,7 +12,6 @@ const useEncryption = () => {
     try {
         return simpleCrypto.decrypt(ciphertext);
       } catch (error) {
-        console.error("Decryption failed:", error);
         return null;
       }
   };

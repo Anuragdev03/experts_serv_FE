@@ -26,7 +26,6 @@ export default function TrackRequest() {
             let value = inputRef.current.value;
             if (value) {
                 const res = await getResponse(value);
-                console.log(res);
                 if (res?.data) {
                     setData(res?.data);
                 } else {
@@ -43,7 +42,6 @@ export default function TrackRequest() {
 
         if (url) {
             const res = await getResponse(url);
-            console.log(res);
             if (res?.data) {
                 setData(res?.data);
             } else {
@@ -75,7 +73,7 @@ export default function TrackRequest() {
                     <h3 className="tr-subtitle">Details</h3>
                     <Box my={16} className="tr-details">
                         {data?.status && <p><span className="gray">Status:</span> <Pill size="sm" bg={data?.status === "accepted" ? "green" : "red"}>{data.status}</Pill></p>}
-                        {data?.available_date && <p><span className="gray">Appointment Date:</span> {formatDate(data?.available_date)}</p>}
+                        {data?.available_date && <p><span className="gray">Appointment Date:</span> {formatDate(data?.available_date)?.toString()}</p>}
                         {data?.response_message && <p><span className="gray">Message from Expert:</span> {data.response_message}</p>}
                     </Box>
                 </Paper> : null}

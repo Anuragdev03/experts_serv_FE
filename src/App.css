@@ -44,3 +44,8 @@ body {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.highlight-text {
+    color: #000;
+    font-weight: 600;
+}

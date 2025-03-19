@@ -80,6 +80,10 @@ a {
     margin-block: 2rem;
 }
 
+.header-items > a {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 600px) {
     .header-items {
         display: none;

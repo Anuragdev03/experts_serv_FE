@@ -70,7 +70,6 @@ export default function SignUp() {
         }
 
         const res = await createAccount(body);
-        console.log(res);
         if (res?.token) {
             notify(
                 "SUCCESS",

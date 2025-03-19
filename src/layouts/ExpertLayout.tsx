@@ -1,3 +1,4 @@
+import Footer from "../components/footer/Footer";
 import ExpertHeader from "../features/dashboard/Header";
 import "./styles/style.css"
 interface LayoutProps {
@@ -13,6 +14,7 @@ export default function ExpertLayout({children}: LayoutProps) {
                     {children}
                 </main>
             </div>
+            <Footer />
         </div>
     )
 }

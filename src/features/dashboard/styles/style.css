@@ -46,7 +46,7 @@
 }
 
 .d-card {
-    min-height: 120px;
+    min-height: 132px;
     min-width: 236px;
     max-width: 236px;
     cursor: pointer;
@@ -60,6 +60,25 @@
     color: #fff;
     font-size: 20px;
     
+}
+
+.tasks-events {
+    text-decoration: underline;
+    margin: 0;
+}
+
+.event-name {
+    color: rgb(39, 38, 38);
+    font-size: 14px;
+    font-weight: 500;
+    margin-block: 8px;
+}
+
+.event-card {
+    max-width: 400px;
+    min-width: 300px;
+    max-height: 400px;
+    overflow: auto;
 }
 
 @media only screen and (max-width: 600px) {

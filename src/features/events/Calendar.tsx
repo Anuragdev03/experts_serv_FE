@@ -66,7 +66,6 @@ export default function Calendar(props: Props) {
     }
 
     function handleEventClick(arg: EventClickArg) {
-        console.log(arg)
         if (!arg.event.start) return;
         if (!arg.event.end) return;
         const payLoad = {
@@ -91,7 +90,6 @@ export default function Calendar(props: Props) {
         const start = e.event.start;
         const end = e.event.end;
         const event_id = e.event.id;
-        console.log(e.event, event_id);
 
         if (!event_id || !start || !end) {
             return

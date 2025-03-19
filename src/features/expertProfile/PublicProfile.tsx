@@ -87,14 +87,12 @@ export default function PublicProfileTab() {
                 setRichTextData(res?.data?.description)
             }
             if(res?.data?.profile_url) {
-                console.log(res?.data?.profile_url)
                 setProfileUrl(res.data.profile_url)
             }
         }
     }
 
     function gotoPublicPage() {
-        console.log(profileUrl)
         navigate(`/view-profile/${profileUrl}`)
     }
 
