@@ -9,6 +9,7 @@ import Loader from "../../components/Loader";
 import { parseAsInteger, useQueryState } from "nuqs";
 import { getExpertList } from "./api/expertList";
 import { useDisclosure } from "@mantine/hooks";
+import Footer from "../../components/footer/Footer";
 
 interface User {
     name: string;
@@ -219,6 +220,7 @@ export default function ExpertsList() {
                     handleDistance={handleDistance}
                 />
             </Drawer>
+            <Footer />
         </Box>
     )
 }
