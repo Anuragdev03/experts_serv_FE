@@ -16,7 +16,7 @@ export function DeleteTaskModal(props: Props) {
     const navigate = useNavigate();
 
     async function confirmDelete() {
-        const res = await deleteTask(id)
+        const res = await deleteTask(id);
         if (res === "Token has expired") {
             const token = await getAccessToken();
             if (token) confirmDelete();

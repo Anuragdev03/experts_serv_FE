@@ -1,5 +1,5 @@
 import { Box } from "@mantine/core";
-import { DateSelectArg, DatesSetArg, EventChangeArg, EventClickArg, formatDate } from '@fullcalendar/core';
+import { DateSelectArg, DatesSetArg, EventChangeArg, EventClickArg } from '@fullcalendar/core';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';

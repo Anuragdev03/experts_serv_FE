@@ -1,4 +1,4 @@
-import { Box, Button, Group, Modal, Paper, SegmentedControl } from "@mantine/core";
+import { Box, Button, Group, Paper, SegmentedControl } from "@mantine/core";
 import "./styles/editTask.css";
 import TextInput from "../../components/TextInput";
 import { useLocation, useNavigate } from "react-router";
@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import TextArea from "../../components/TextArea";
 import DateTimeInput from "../../components/DateTimeInput";
 import { DateValue } from "@mantine/dates";
-import { deleteTask, updateTask } from "./api/tasks";
+import { updateTask } from "./api/tasks";
 import { getAccessToken } from "../../api/refreshToken";
 import { notify } from "../../utilities/helpers";
 import { useDisclosure } from "@mantine/hooks";

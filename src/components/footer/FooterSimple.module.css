@@ -13,3 +13,13 @@
     font-size: 18px;
     color: #fff;
 }
+
+.privacy_title {
+    margin: 0 !important;
+    padding: 0;
+}
+
+.privacy_text {
+    font-size: 14px;
+    opacity: .8;
+}

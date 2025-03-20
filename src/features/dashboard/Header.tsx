@@ -13,7 +13,6 @@ import { useDisclosure, useViewportSize } from "@mantine/hooks";
 import { MdOutlineDashboard } from "react-icons/md";
 import { AiOutlineUserSwitch } from "react-icons/ai";
 import { LiaTasksSolid } from "react-icons/lia";
-import { MdOutlineWorkOutline } from "react-icons/md";
 import { RiCalendarEventLine } from "react-icons/ri";
 
 import { getNotificationCount } from "./api/notification";
@@ -33,7 +32,7 @@ export default function ExpertHeader() {
     const goHome = () => navigate("/dashboard");
 
     async function logout() {
-        const res = await logoutFromDevice();
+        await logoutFromDevice();
         sessionStorage.removeItem("token");
         navigate("/login")
     }
