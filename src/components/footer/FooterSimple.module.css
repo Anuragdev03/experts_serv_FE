@@ -23,3 +23,13 @@
     font-size: 14px;
     opacity: .8;
 }
+
+@media only screen and (max-width: 768px) {
+    .links {
+        flex-direction: column !important;
+        margin: 30px;
+    }
+    .inner {
+        justify-content: space-around;
+    }
+}
