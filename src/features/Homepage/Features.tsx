@@ -6,6 +6,7 @@ import expertSearch from "./assets/expert-search.webp";
 import dashboard from "./assets/dashboard.webp";
 import customerReq from "./assets/customer-request.webp";
 import tasks from "./assets/tasks.webp";
+import eventImg from "./assets/events.webp"
 
 export default function Features() {
     return (
@@ -64,7 +65,7 @@ export default function Features() {
 
                 <Group wrap="nowrap" my={16}>
                     <Box>
-                        <img className="feature-img" src={tasks} />
+                        <img className="feature-img" src={eventImg} />
                     </Box>
                     <Box style={{ alignSelf: "flex-start" }}>
                         <p className="feature-sub-title">Events</p>
