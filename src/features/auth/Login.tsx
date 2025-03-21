@@ -17,6 +17,8 @@ export default function Login() {
     const [isChecked, setIsChecked] = useState(false);
     const { encrypt, decrypt } = useEncryption()
     const [loading, setLoading] = useState(false);
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
 
     const { storeToken } = useAuth();
     const goToSignup = () => navigate("/signup");
@@ -38,7 +40,17 @@ export default function Login() {
     }
 
     async function handleLogin() {
+        if(!email) {
+            setEmailError("Email is required");
+            return;
+        }
+        if(!password) {
+            setPasswordError("Password is required")
+            return;
+        }
         setLoading(true);
+        setEmailError("");
+        setPasswordError("");
         const body = {
             email: email,
             password: password
@@ -97,8 +109,8 @@ export default function Login() {
                 </Anchor></p>
 
                 <Paper withBorder shadow="md" p={30} mt={30} radius="md" mx={12}>
-                    <TextInput value={email} label="Email" placeholder="you@email.com" required onChange={handleEmailChange} />
-                    <PasswordInput value={password} label="Password" placeholder="Your password" required mt="md" onChange={handlePasswordChange} />
+                    <TextInput value={email} label="Email" placeholder="you@email.com" required onChange={handleEmailChange} error={emailError} />
+                    <PasswordInput value={password} label="Password" placeholder="Your password" required mt="md" onChange={handlePasswordChange} error={passwordError} />
                     <Group justify="space-between" mt="lg">
                         <Checkbox checked={isChecked} label="Remember me" onChange={handleCheckBox} />
                         <Anchor component="button" size="sm" onClick={gotoForgotPassword}>
