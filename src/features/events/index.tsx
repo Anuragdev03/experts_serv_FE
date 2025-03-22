@@ -27,17 +27,23 @@ export default function Events() {
         }
         const data = list?.data;
 
-        const formattedEvents = data.map((event: any) => ({
-            id: event.id,
-            title: event.title,
-            start: event.start_date, 
-            end: event.end_date,
-            allDay: event.all_day === "true" ? true : false,
-            description: event.description,
-            link: event.link
-          }));
-        
-        setEvents(formattedEvents)
+        if(data) {
+            const formattedEvents = data.map((event: any) => ({
+                id: event.id,
+                title: event.title,
+                start: event.start_date, 
+                end: event.end_date,
+                allDay: event.all_day === "true" ? true : false,
+                description: event.description,
+                link: event.link
+              }));
+            
+            setEvents(formattedEvents)
+        }
+
+        if(list?.message === "No Data Found!") {
+            setEvents([]);
+        }
     }
 
     async function fetchEventsByArg(start: string | Date, end: string | Date) {
@@ -49,9 +55,12 @@ export default function Events() {
             const token = await getAccessToken();
             if (token) fetchEventsByArg(start, end);
         }
+
+        if(list?.message === "No Data Found!") {
+            setEvents([]);
+            return;
+        }
         const data = list?.data;
-
-
         const formattedEvents = data.map((event: any) => ({
             id: event.id,
             title: event.title,
