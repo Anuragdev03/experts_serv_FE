@@ -256,7 +256,7 @@ export default function PersonalProfile(props: Props) {
                 />
 
                 <MultiSelect
-                    label="Filter by Jobs"
+                    label="Fields of Work"
                     placeholder="Electrician"
                     data={expertList}
                     handleChange={handleJobsListChange}
