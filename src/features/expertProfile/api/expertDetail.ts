@@ -60,3 +60,12 @@ export async function getPublicProfileDetails() {
         }
     }
 }
+
+export async function updateProfileStatus(status: boolean) {
+    try {
+        const res = await http.patch("/expert/profile-status", {show_profile: status}, {withCredentials: true});
+        return res.data;
+    } catch(err:any) {
+        return err?.response?.data?.message
+    }
+} 

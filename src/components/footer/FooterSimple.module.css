@@ -28,6 +28,7 @@
     .links {
         flex-direction: column !important;
         margin: 30px;
+        align-items: flex-start !important;
     }
     .inner {
         justify-content: space-around;

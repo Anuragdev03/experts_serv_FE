@@ -10,7 +10,7 @@ import eventImg from "./assets/events.webp"
 
 export default function Features() {
     return (
-        <Box className="feature-container">
+        <Box id="features" className="feature-container">
             <Box>
                 <h2 className="feature-title">Features</h2>
 

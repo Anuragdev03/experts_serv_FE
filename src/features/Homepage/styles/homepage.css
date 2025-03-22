@@ -11,7 +11,7 @@
     padding-inline: 2rem;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr .5fr;
     align-items: center;
 
 }
@@ -84,6 +84,8 @@ a {
     text-decoration: none;
 }
 
+
+
 @media only screen and (max-width: 600px) {
     .header-items {
         display: none;
@@ -111,6 +113,18 @@ a {
     }
     .logo {
         font-size: 16px;
+    }
+    .menu-items > a {
+        text-decoration: none;
+    }
+
+    .header-container {
+    grid-template-columns: 1fr 1fr;
+
+    }
+
+    .hide-on-mobile {
+        display: none !important;
     }
 
 }

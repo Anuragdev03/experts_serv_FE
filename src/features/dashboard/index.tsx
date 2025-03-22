@@ -1,4 +1,4 @@
-import { Box, Card, Divider, Group, Paper } from "@mantine/core";
+import { Box, Button, Card, Divider, Group, Modal, Paper } from "@mantine/core";
 import "./styles/style.css";
 import { getCount, getTasksCount, getTasksList } from "./api/customerRequest";
 import { useEffect, useState } from "react";
@@ -7,6 +7,7 @@ import { RiArrowRightWideLine } from "react-icons/ri";
 import { useNavigate } from "react-router";
 import { eventDate, formatTime, monthAndYear } from "../../utilities/dates";
 import { getEventList } from "../events/api/events";
+import { useDisclosure } from "@mantine/hooks";
 
 interface Event {
     title: string;
@@ -26,13 +27,25 @@ export default function Dashboard() {
     const [taskCount, setTaskCount] = useState("");
     const [events, setEvents] = useState<Array<Event>>([]);
     const [tasks, setTasks] = useState<Array<Tasks>>()
+    const [opened, { open, close }] = useDisclosure(false);
 
     useEffect(() => {
         fetchReqCount();
         fetchTasksCount();
         fetchEventsList();
         fetchTasksList();
+        checkUserUpdatedTheProfile()
     }, [])
+
+    function checkUserUpdatedTheProfile() {
+        const isProfileUpdated = localStorage.getItem("isProfileUpdated");
+        console.log(isProfileUpdated)
+        if (isProfileUpdated === "true") {
+            return;
+        }
+
+        open();
+    }
 
     async function fetchReqCount() {
         const res = await getCount();
@@ -65,7 +78,7 @@ export default function Dashboard() {
             if (token) fetchTasksList();
         }
 
-        if(res?.data) {
+        if (res?.data) {
             setTasks(res?.data)
         }
     }
@@ -89,7 +102,11 @@ export default function Dashboard() {
             setEvents(res?.data)
         }
     }
-    
+
+    function gotoProfile() {
+        localStorage.setItem("isProfileUpdated", "true")
+        navigate("/expert-profile")
+    }
     return (
         <Box className="dash-wrapper">
             <Paper shadow="sm" radius={8} className="dashboard-cards">
@@ -137,10 +154,34 @@ export default function Dashboard() {
                         <Divider my={2} />
                         {Array.isArray(tasks) && tasks?.length ? tasks.map((obj, i) => (
                             <p key={obj.id} className="event-name">{i + 1} {obj?.title}</p>
-                        )): <p className="event-name">No Tasks Today!</p>}
+                        )) : <p className="event-name">No Tasks Today!</p>}
                     </Box>
                 </Paper>
             </Group>
+
+            {/* User Profile update modal */}
+            <Modal opened={opened} onClose={close} title="Update Profile Required" centered>
+                <p className="event-name">
+                    To ensure visibility and access to search features, please update your <span className="highlight-text">personal</span> and <span className="highlight-text">public</span> profile.
+                </p>
+
+                <ul>
+                    <li>
+                        <p>
+                            <span className="highlight-text">Visibility:</span> Your profile gets views only be visible to customers once updated.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <span className="highlight-text">Search Access: </span> The search filter works based on your profile. Update with relevant keywords.
+                        </p>
+                    </li>
+                </ul>
+                <Group wrap="nowrap" align="center" justify="center">
+                    <Button color="#000" variant="light">Cancel</Button>
+                    <Button color="#000" onClick={gotoProfile}>Goto Profile</Button>
+                </Group>
+            </Modal>
         </Box>
     )
 }
