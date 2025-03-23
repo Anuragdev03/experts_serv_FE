@@ -15,7 +15,7 @@ export default function Footer() {
                 <Group className={classes.links}>
                     <Anchor<'a'>
                         c="dimmed"
-                        key={"Contack"}
+                        key={"Contact"}
                         size="sm"
                         target="_blank" rel="noopener noreferrer"
                     >
@@ -24,7 +24,7 @@ export default function Footer() {
 
                     <Anchor<'a'>
                         c="dimmed"
-                        key={"Contack"}
+                        key={"privacy"}
                         size="sm"
                         onClick={open}
                     >
@@ -33,7 +33,7 @@ export default function Footer() {
 
                     <Anchor<'a'>
                         c="dimmed"
-                        key={"Contack"}
+                        key={"feedback"}
                         size="sm"
                         target="_blank" rel="noopener noreferrer"
                         href={SUPPORT_LINK}
