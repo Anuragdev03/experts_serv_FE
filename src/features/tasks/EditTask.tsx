@@ -127,22 +127,23 @@ export default function EditTask() {
                         ]}
                         color="#000"
                         my={8}
-                    />
 
+                    />
                     <p className="label">Status</p>
-                    <SegmentedControl
-                        value={status}
-                        onChange={setStatus}
-                        data={[
-                            { label: 'Pending', value: 'pending' },
-                            { label: 'In Progress', value: 'inprogress' },
-                            { label: 'Completed', value: 'completed' },
-                            { label: 'Archived', value: 'archived' },
-                        ]}
-                        color="#000"
-                        my={8}
-                    />
-
+                    <div style={{ overflowX: "auto", whiteSpace: "nowrap", paddingBottom: "5px" }}>
+                        <SegmentedControl
+                            value={status}
+                            onChange={setStatus}
+                            data={[
+                                { label: 'Pending', value: 'pending' },
+                                { label: 'In Progress', value: 'inprogress' },
+                                { label: 'Completed', value: 'completed' },
+                                { label: 'Archived', value: 'archived' },
+                            ]}
+                            color="#000"
+                            my={8}
+                        />
+                    </div>
                     <DateTimeInput
                         value={dueDate}
                         label="Due Date"

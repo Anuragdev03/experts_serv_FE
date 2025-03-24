@@ -158,6 +158,7 @@ export default function Calendar(props: Props) {
                 events={events}
                 eventClick={handleEventClick}
                 eventChange={handleDragAndDropEvent}
+                longPressDelay={1}
             // initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
             // eventContent={renderEventContent} // custom render function
             // eventClick={handleEventClick}
