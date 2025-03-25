@@ -9,7 +9,7 @@ interface User {
 
 type AuthContextType = {
     isAuthenticated: boolean;
-    storeToken: (token: string, data: User) => void;
+    storeToken: (token: string, data: User | null) => void;
     logout: () => void;
     user: User | null;
     accessToken: string | null;
@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [accessToken, setAccessToken] = useState(sessionStorage.getItem("token"));
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    function storeToken(token: string, data: User) {
+    function storeToken(token: string, data: User | null) {
         setAccessToken(token);
         setUser(data);
         setIsAuthenticated(true)
