@@ -1,5 +1,5 @@
 import { Box, Button, Group, Paper, Pill } from "@mantine/core"
-import { useNavigate, useParams } from "react-router"
+import { data, useNavigate, useParams } from "react-router"
 import Header from "./Header"
 import "./styles/styles.css";
 import { getProfileDetails } from "./api/viewProfile";
@@ -16,6 +16,8 @@ interface ProfileData {
     website: string;
     description: string;
     user_name: string;
+    lat: string;
+    lng: string
 }
 export default function ViewProfile() {
     const [profileData, setProfileData] = useState<ProfileData | null>(null)
@@ -53,7 +55,7 @@ export default function ViewProfile() {
                         <Pill my={8}>{str}</Pill>
                     ))}
                     <p className="gray location">City: {profileData?.city}, state: {profileData?.state}, Country: {profileData?.country}</p>
-                    <a href="#" className="location">Google Map Link</a>
+                    {profileData?.lat ? <a href={`https://www.google.com/maps/place/${profileData.lat},${profileData.lng}`} target="_blank" rel="noopener noreferrer" className="location">Google Map Link</a> : null}
                 </Paper>
                 <Paper shadow="xs" radius={8} className="paper-2">
                     {profileData?.website ? <a href={profileData?.website} target="_blank" rel="noopener noreferrer">Social media link/Website</a> : null}
