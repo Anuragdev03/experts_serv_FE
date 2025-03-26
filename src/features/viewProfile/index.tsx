@@ -1,5 +1,5 @@
 import { Box, Button, Group, Paper, Pill } from "@mantine/core"
-import { data, useNavigate, useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import Header from "./Header"
 import "./styles/styles.css";
 import { getProfileDetails } from "./api/viewProfile";
